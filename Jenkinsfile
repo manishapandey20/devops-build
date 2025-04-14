@@ -30,7 +30,7 @@ pipeline {
         HEAD
           def tag = env.BRANCH_NAME == 'main' ? 'prod' : 'dev'
 
-              tag = env.BRANCH_NAME == 'master' ? 'prod' : 'dev'
+              tag = env.BRANCH_NAME == 'main' ? 'prod' : 'dev'
        dev
           def imageName = "manishapandey20/devops-app-${tag}:latest"
           
