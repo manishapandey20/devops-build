@@ -27,7 +27,7 @@ pipeline {
     stage('Push to DockerHub') {
       steps {
         script {
-          def tag = env.BRANCH_NAME == 'master' ? 'prod' : 'dev'
+          def tag = env.BRANCH_NAME == 'main' ? 'prod' : 'dev'
           def imageName = "manishapandey20/devops-app-${tag}:latest"
           
           sh "docker tag manishapandey20/devops-app:latest ${imageName}"
