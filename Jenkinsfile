@@ -27,13 +27,9 @@ pipeline {
     stage('Push to DockerHub') {
       steps {
         script {
-        HEAD
           def tag = env.BRANCH_NAME == 'main' ? 'prod' : 'dev'
-
-              tag = env.BRANCH_NAME == 'main' ? 'prod' : 'dev'
-       dev
           def imageName = "manishapandey20/devops-app-${tag}:latest"
-          
+
           sh "docker tag manishapandey20/devops-app:latest ${imageName}"
           sh "echo ${DOCKER_HUB_CREDS_PSW} | docker login -u ${DOCKER_HUB_CREDS_USR} --password-stdin"
           sh "docker push ${imageName}"
@@ -42,4 +38,5 @@ pipeline {
     }
   }
 }
+
 
